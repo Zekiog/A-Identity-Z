@@ -225,21 +225,21 @@ const Services = () => {
       icon: <FiGlobe className="w-8 h-8" />,
       title: "Translation & Interpretation",
       description: "Professional language services with cultural sensitivity and domain expertise for global communication.",
-      image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643",
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBub3JkaWMlMjB0cmFuc2xhdGlvbiUyMHNlcnZpY2VzfGVufDB8fHx8MTcxMTYzMjAyOXww&ixlib=rb-4.0.3&q=80&w=1080",
       color: "from-primary-500 to-primary-700"
     },
     {
       icon: <FiCpu className="w-8 h-8" />,
       title: "AI Integration",
       description: "Personalized and trained artificial intelligence solutions tailored to your specific business needs.",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+      image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwyfHxBSSUyMHRlY2hub2xvZ3klMjBpbnRlZ3JhdGlvbnxlbnwwfHx8fDE3MTE2MzIwMjl8MA&ixlib=rb-4.0.3&q=80&w=1080",
       color: "from-secondary-400 to-secondary-600"
     },
     {
       icon: <FiSliders className="w-8 h-8" />,
       title: "Automation Systems",
       description: "Reliable and traceable automation workflows that enhance efficiency and reduce manual operations.",
-      image: "https://images.unsplash.com/photo-1573164574230-db1d5e960238",
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGF1dG9tYXRpb24lMjBzeXN0ZW1zfGVufDB8fHx8MTcxMTYzMjAyOXww&ixlib=rb-4.0.3&q=80&w=1080",
       color: "from-accent to-secondary-500"
     }
   ];
