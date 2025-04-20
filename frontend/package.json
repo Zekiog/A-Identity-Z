@@ -4,15 +4,24 @@
   "private": true,
   "dependencies": {
     "@headlessui/react": "^2.2.2",
+    "@heroicons/react": "^2.2.0",
     "cra-template": "1.2.0",
     "framer-motion": "^12.7.4",
     "gsap": "^3.12.7",
+    "i18next": "^25.0.1",
+    "i18next-browser-languagedetector": "^8.0.5",
+    "i18next-http-backend": "^3.0.2",
     "react": "^19.0.0",
+    "react-datepicker": "^8.3.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.56.0",
+    "react-i18next": "^15.4.1",
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
+    "react-router-dom": "^7.5.1",
     "react-scripts": "5.0.1",
-    "react-scroll": "^1.9.3"
+    "react-scroll": "^1.9.3",
+    "recharts": "^2.15.3"
   },
   "scripts": {
     "start": "react-scripts start",
