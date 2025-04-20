@@ -1,0 +1,143 @@
+{
+  "navigation": {
+    "home": "Hjem",
+    "services": "Tjenester",
+    "about": "Om oss",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "tagline": "Norges ledende AI- og oversettelsestjeneste",
+    "heading": "Brobygging mellom språk. Styrking av automatisering.",
+    "description": "A-Identity-Z leverer sømløse oversettelsestjenester, pålitelige automatiseringssystemer og personlige AI-integrasjoner for globale bedrifter.",
+    "cta": {
+      "primary": "Kom i gang",
+      "secondary": "Utforsk tjenester"
+    }
+  },
+  "services": {
+    "title": "Våre tjenester",
+    "heading": "Omfattende løsninger",
+    "description": "Vi tilbyr integrerte tjenester innen oversettelse, automatisering og AI-teknologier for å drive virksomheten din fremover i den digitale tidsalderen.",
+    "items": {
+      "translation": {
+        "title": "Oversettelse og tolkning",
+        "description": "Profesjonelle språktjenester med kulturell sensitivitet og domeneekspertise for global kommunikasjon."
+      },
+      "ai": {
+        "title": "AI-integrasjon",
+        "description": "Personlige og trenede kunstig intelligens-løsninger skreddersydd for dine spesifikke forretningsbehov."
+      },
+      "automation": {
+        "title": "Automatiseringssystemer",
+        "description": "Pålitelige og sporbare automatiseringsarbeidsflyter som forbedrer effektiviteten og reduserer manuelle operasjoner."
+      }
+    },
+    "learnMore": "Lær mer"
+  },
+  "about": {
+    "tagline": "Om A-Identity-Z",
+    "heading": "Global innvirkning, nordisk presisjon",
+    "description1": "Etablert i Trondheim, Norge, er A-Identity-Z forpliktet til å levere oversettelse, automatisering og AI-tjenester i verdensklasse med nordisk oppmerksomhet på detaljer og kvalitet.",
+    "description2": "Vårt oppdrag er å sikre den langsiktige, bærekraftige og effektive driften av språktjenester og AI-løsninger, samtidig som vi prioriterer global kundetilfredshet og ansvarlig digital transformasjon.",
+    "features": {
+      "sustainable": {
+        "title": "Bærekraftig",
+        "description": "Langsiktige løsninger"
+      },
+      "traceable": {
+        "title": "Sporbar",
+        "description": "Transparente operasjoner"
+      },
+      "reliable": {
+        "title": "Pålitelig",
+        "description": "Konsistent ytelse"
+      },
+      "global": {
+        "title": "Global",
+        "description": "Verdensomspennende tjenester"
+      }
+    }
+  },
+  "testimonials": {
+    "tagline": "Kundevurderinger",
+    "heading": "Hva våre klienter sier",
+    "description": "Ikke bare ta vårt ord for det. Her er hva kundene våre har å si om tjenestene og samarbeidet vårt."
+  },
+  "faq": {
+    "tagline": "FAQ",
+    "heading": "Ofte stilte spørsmål",
+    "description": "Få svar på vanlige spørsmål om tjenestene våre, implementeringsprosessen og støttealternativer."
+  },
+  "contact": {
+    "tagline": "Kom i gang",
+    "heading": "Klar til å transformere din globale virksomhet?",
+    "description": "Kontakt våre eksperter for å diskutere dine spesifikke behov og oppdag hvordan A-Identity-Z kan hjelpe deg med å oppnå sømløs global kommunikasjon og effektiv drift.",
+    "headquarters": "Hovedkontor",
+    "location": "Trondheim, Norge",
+    "emailUs": "E-post oss",
+    "email": "kontakt@aidentityz.com",
+    "formTitle": "Be om informasjon",
+    "form": {
+      "firstName": "Fornavn",
+      "lastName": "Etternavn",
+      "email": "E-postadresse",
+      "company": "Firma",
+      "service": "Tjeneste av interesse",
+      "serviceOptions": {
+        "select": "Velg en tjeneste",
+        "translation": "Oversettelse og tolkning",
+        "ai": "AI-integrasjon",
+        "automation": "Automatiseringssystemer",
+        "multiple": "Flere tjenester"
+      },
+      "message": "Melding",
+      "messagePlaceholder": "Fortell oss om prosjektet ditt",
+      "submit": "Send forespørsel",
+      "privacy": "Ved å sende inn dette skjemaet, godtar du vår personvernerklæring og vilkår for tjenesten."
+    }
+  },
+  "footer": {
+    "cta": {
+      "heading": "Klar til å løfte dine globale operasjoner?",
+      "description": "Start reisen din med A-Identity-Z i dag.",
+      "button": "Kom i gang nå"
+    },
+    "description": "Bringe språk sammen og styrke automatisering med nordisk presisjon og global ekspertise.",
+    "serviceLinks": {
+      "heading": "Tjenester",
+      "translation": "Oversettelsestjenester",
+      "interpretation": "Tolkning",
+      "ai": "AI-integrasjon",
+      "automation": "Automatiseringssystemer",
+      "custom": "Tilpassede løsninger"
+    },
+    "companyLinks": {
+      "heading": "Selskap",
+      "about": "Om oss",
+      "team": "Vårt team",
+      "careers": "Karriere",
+      "press": "Presse",
+      "contact": "Kontakt"
+    },
+    "legalLinks": {
+      "heading": "Juridisk",
+      "privacy": "Personvernerklæring",
+      "terms": "Vilkår for tjenesten",
+      "cookies": "Cookiepolicy",
+      "gdpr": "GDPR-samsvar"
+    },
+    "copyright": "© 2024 A-Identity-Z. Alle rettigheter reservert. Registrert i Norge."
+  },
+  "languageSwitcher": {
+    "label": "Bytt språk",
+    "languages": {
+      "en": "Engelsk",
+      "no": "Norsk",
+      "sv": "Svensk",
+      "da": "Dansk",
+      "de": "Tysk",
+      "tr": "Tyrkisk",
+      "ar": "Arabisk"
+    }
+  }
+}

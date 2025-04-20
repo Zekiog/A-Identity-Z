@@ -1,0 +1,143 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "tagline": "Norway's Premier AI & Translation Service",
+    "heading": "Bridging Languages. Empowering Automation.",
+    "description": "A-Identity-Z delivers seamless translation services, reliable automation systems, and personalized AI integrations for global enterprises.",
+    "cta": {
+      "primary": "Get Started",
+      "secondary": "Explore Services"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "heading": "Comprehensive Solutions",
+    "description": "We offer integrated services across translation, automation, and AI technologies to drive your business forward in the digital era.",
+    "items": {
+      "translation": {
+        "title": "Translation & Interpretation",
+        "description": "Professional language services with cultural sensitivity and domain expertise for global communication."
+      },
+      "ai": {
+        "title": "AI Integration",
+        "description": "Personalized and trained artificial intelligence solutions tailored to your specific business needs."
+      },
+      "automation": {
+        "title": "Automation Systems",
+        "description": "Reliable and traceable automation workflows that enhance efficiency and reduce manual operations."
+      }
+    },
+    "learnMore": "Learn more"
+  },
+  "about": {
+    "tagline": "About A-Identity-Z",
+    "heading": "Global Impact, Nordic Precision",
+    "description1": "Established in Trondheim, Norway, A-Identity-Z is committed to providing world-class translation, automation, and AI services with Nordic attention to detail and quality.",
+    "description2": "Our mission is to ensure the long-term, sustainable, and efficient operation of language services and AI solutions while prioritizing global customer satisfaction and responsible digital transformation.",
+    "features": {
+      "sustainable": {
+        "title": "Sustainable",
+        "description": "Long-term focused solutions"
+      },
+      "traceable": {
+        "title": "Traceable",
+        "description": "Transparent operations"
+      },
+      "reliable": {
+        "title": "Reliable",
+        "description": "Consistent performance"
+      },
+      "global": {
+        "title": "Global",
+        "description": "Worldwide services"
+      }
+    }
+  },
+  "testimonials": {
+    "tagline": "Testimonials",
+    "heading": "What Our Clients Say",
+    "description": "Don't just take our word for it. Here's what our clients have to say about our services and collaborations."
+  },
+  "faq": {
+    "tagline": "FAQ",
+    "heading": "Frequently Asked Questions",
+    "description": "Get answers to common questions about our services, implementation process, and support options."
+  },
+  "contact": {
+    "tagline": "Get Started",
+    "heading": "Ready to Transform Your Global Operations?",
+    "description": "Connect with our experts to discuss your specific needs and discover how A-Identity-Z can help you achieve seamless global communication and efficient operations.",
+    "headquarters": "Headquarters",
+    "location": "Trondheim, Norway",
+    "emailUs": "Email Us",
+    "email": "contact@aidentityz.com",
+    "formTitle": "Request Information",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "company": "Company",
+      "service": "Service of Interest",
+      "serviceOptions": {
+        "select": "Select a service",
+        "translation": "Translation & Interpretation",
+        "ai": "AI Integration",
+        "automation": "Automation Systems",
+        "multiple": "Multiple Services"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project",
+      "submit": "Submit Request",
+      "privacy": "By submitting this form, you agree to our Privacy Policy and Terms of Service."
+    }
+  },
+  "footer": {
+    "cta": {
+      "heading": "Ready to elevate your global operations?",
+      "description": "Start your journey with A-Identity-Z today.",
+      "button": "Get Started Now"
+    },
+    "description": "Bridging languages and empowering automation with Nordic precision and global expertise.",
+    "serviceLinks": {
+      "heading": "Services",
+      "translation": "Translation Services",
+      "interpretation": "Interpretation",
+      "ai": "AI Integration",
+      "automation": "Automation Systems",
+      "custom": "Custom Solutions"
+    },
+    "companyLinks": {
+      "heading": "Company",
+      "about": "About Us",
+      "team": "Our Team",
+      "careers": "Careers",
+      "press": "Press",
+      "contact": "Contact"
+    },
+    "legalLinks": {
+      "heading": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "gdpr": "GDPR Compliance"
+    },
+    "copyright": "© 2024 A-Identity-Z. All rights reserved. Registered in Norway."
+  },
+  "languageSwitcher": {
+    "label": "Change language",
+    "languages": {
+      "en": "English",
+      "no": "Norwegian",
+      "sv": "Swedish",
+      "da": "Danish",
+      "de": "German",
+      "tr": "Turkish",
+      "ar": "Arabic"
+    }
+  }
+}

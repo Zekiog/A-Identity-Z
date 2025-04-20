@@ -1,0 +1,143 @@
+{
+  "navigation": {
+    "home": "Ana Sayfa",
+    "services": "Hizmetler",
+    "about": "Hakkımızda",
+    "faq": "SSS"
+  },
+  "hero": {
+    "tagline": "Norveç'in Önde Gelen Yapay Zeka ve Çeviri Hizmeti",
+    "heading": "Dilleri Birleştirme. Otomasyonu Güçlendirme.",
+    "description": "A-Identity-Z, küresel işletmeler için sorunsuz çeviri hizmetleri, güvenilir otomasyon sistemleri ve kişiselleştirilmiş yapay zeka entegrasyonları sunar.",
+    "cta": {
+      "primary": "Başla",
+      "secondary": "Hizmetleri Keşfet"
+    }
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "heading": "Kapsamlı Çözümler",
+    "description": "Dijital çağda işletmenizi ileriye taşımak için çeviri, otomasyon ve yapay zeka teknolojileri alanlarında entegre hizmetler sunuyoruz.",
+    "items": {
+      "translation": {
+        "title": "Çeviri ve Tercümanlık",
+        "description": "Küresel iletişim için kültürel hassasiyet ve alan uzmanlığına sahip profesyonel dil hizmetleri."
+      },
+      "ai": {
+        "title": "Yapay Zeka Entegrasyonu",
+        "description": "Belirli iş ihtiyaçlarınıza göre özelleştirilmiş ve eğitilmiş yapay zeka çözümleri."
+      },
+      "automation": {
+        "title": "Otomasyon Sistemleri",
+        "description": "Verimliliği artıran ve manuel işlemleri azaltan güvenilir ve izlenebilir otomasyon iş akışları."
+      }
+    },
+    "learnMore": "Daha fazla bilgi"
+  },
+  "about": {
+    "tagline": "A-Identity-Z Hakkında",
+    "heading": "Küresel Etki, İskandinav Hassasiyeti",
+    "description1": "Norveç'in Trondheim şehrinde kurulan A-Identity-Z, İskandinav detay ve kalite anlayışıyla dünya standartlarında çeviri, otomasyon ve yapay zeka hizmetleri sunmaya kendini adamıştır.",
+    "description2": "Misyonumuz, küresel müşteri memnuniyetini ve sorumlu dijital dönüşümü önceliklendirirken, dil hizmetleri ve yapay zeka çözümlerinin uzun vadeli, sürdürülebilir ve verimli işleyişini sağlamaktır.",
+    "features": {
+      "sustainable": {
+        "title": "Sürdürülebilir",
+        "description": "Uzun vadeli odaklı çözümler"
+      },
+      "traceable": {
+        "title": "İzlenebilir",
+        "description": "Şeffaf operasyonlar"
+      },
+      "reliable": {
+        "title": "Güvenilir",
+        "description": "Tutarlı performans"
+      },
+      "global": {
+        "title": "Küresel",
+        "description": "Dünya çapında hizmetler"
+      }
+    }
+  },
+  "testimonials": {
+    "tagline": "Müşteri Görüşleri",
+    "heading": "Müşterilerimiz Ne Diyor",
+    "description": "Sadece bizim sözümüzü dinlemeyin. İşte müşterilerimizin hizmetlerimiz ve işbirliklerimiz hakkında söyledikleri."
+  },
+  "faq": {
+    "tagline": "SSS",
+    "heading": "Sıkça Sorulan Sorular",
+    "description": "Hizmetlerimiz, uygulama sürecimiz ve destek seçeneklerimiz hakkında sık sorulan soruların cevaplarını alın."
+  },
+  "contact": {
+    "tagline": "Başlayın",
+    "heading": "Küresel Operasyonlarınızı Dönüştürmeye Hazır mısınız?",
+    "description": "Belirli ihtiyaçlarınızı tartışmak ve A-Identity-Z'nin sorunsuz küresel iletişim ve verimli operasyonlar elde etmenize nasıl yardımcı olabileceğini keşfetmek için uzmanlarımızla iletişime geçin.",
+    "headquarters": "Genel Merkez",
+    "location": "Trondheim, Norveç",
+    "emailUs": "Bize E-posta Gönderin",
+    "email": "iletisim@aidentityz.com",
+    "formTitle": "Bilgi İsteği",
+    "form": {
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta Adresi",
+      "company": "Şirket",
+      "service": "İlgilenilen Hizmet",
+      "serviceOptions": {
+        "select": "Bir hizmet seçin",
+        "translation": "Çeviri ve Tercümanlık",
+        "ai": "Yapay Zeka Entegrasyonu",
+        "automation": "Otomasyon Sistemleri",
+        "multiple": "Birden Fazla Hizmet"
+      },
+      "message": "Mesaj",
+      "messagePlaceholder": "Projeniz hakkında bize bilgi verin",
+      "submit": "İstek Gönder",
+      "privacy": "Bu formu göndererek, Gizlilik Politikamızı ve Hizmet Şartlarımızı kabul etmiş olursunuz."
+    }
+  },
+  "footer": {
+    "cta": {
+      "heading": "Küresel operasyonlarınızı yükseltmeye hazır mısınız?",
+      "description": "A-Identity-Z ile yolculuğunuza bugün başlayın.",
+      "button": "Hemen Başlayın"
+    },
+    "description": "İskandinav hassasiyeti ve küresel uzmanlıkla dilleri birleştirme ve otomasyonu güçlendirme.",
+    "serviceLinks": {
+      "heading": "Hizmetler",
+      "translation": "Çeviri Hizmetleri",
+      "interpretation": "Tercümanlık",
+      "ai": "Yapay Zeka Entegrasyonu",
+      "automation": "Otomasyon Sistemleri",
+      "custom": "Özel Çözümler"
+    },
+    "companyLinks": {
+      "heading": "Şirket",
+      "about": "Hakkımızda",
+      "team": "Ekibimiz",
+      "careers": "Kariyer",
+      "press": "Basın",
+      "contact": "İletişim"
+    },
+    "legalLinks": {
+      "heading": "Yasal",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Hizmet Şartları",
+      "cookies": "Çerez Politikası",
+      "gdpr": "GDPR Uyumluluğu"
+    },
+    "copyright": "© 2024 A-Identity-Z. Tüm hakları saklıdır. Norveç'te kayıtlıdır."
+  },
+  "languageSwitcher": {
+    "label": "Dil değiştir",
+    "languages": {
+      "en": "İngilizce",
+      "no": "Norveççe",
+      "sv": "İsveççe",
+      "da": "Danca",
+      "de": "Almanca",
+      "tr": "Türkçe",
+      "ar": "Arapça"
+    }
+  }
+}
