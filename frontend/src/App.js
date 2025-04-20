@@ -55,6 +55,7 @@ const FadeInSection = ({ children, delay = 0, className = "" }) => {
 
 // Navbar Component
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -78,18 +79,24 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           <NavLinks setIsOpen={setIsOpen} />
+          <LanguageSwitcher />
           <ScrollLink to="contact" smooth={true} duration={800}>
-            <button className="btn-primary">Get Started</button>
+            <button className="btn-primary">
+              {t('hero.cta.primary')}
+            </button>
           </ScrollLink>
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white focus:outline-none" 
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
+        <div className="flex items-center space-x-2 md:hidden">
+          <LanguageSwitcher />
+          <button 
+            className="text-white focus:outline-none" 
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
