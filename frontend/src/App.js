@@ -329,6 +329,7 @@ const About = () => {
                 src="https://images.unsplash.com/photo-1573497701175-00c200fd57f0" 
                 alt="A-Identity-Z Team" 
                 className="w-full h-auto"
+                loading="lazy"
               />
             </div>
           </FadeInSection>
