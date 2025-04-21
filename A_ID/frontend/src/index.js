@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./i18n"; // Import i18n config
@@ -19,11 +19,32 @@ const Loading = () => (
   </div>
 );
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <Suspense fallback={<Loading />}>
-      <AppRoutes />
-    </Suspense>
-  </React.StrictMode>,
-);
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  console.error("Failed to find root element");
+} else {
+  console.log("Found root element, mounting app...");
+  const root = ReactDOM.createRoot(rootElement);
+  
+  // Debug wrapper component
+  const DebugApp = () => {
+    useEffect(() => {
+      console.log("AppRoutes component mounted");
+    }, []);
+    
+    return (
+      <React.StrictMode>
+        <Suspense fallback={<Loading />}>
+          <AppRoutes />
+        </Suspense>
+      </React.StrictMode>
+    );
+  };
+
+  root.render(<DebugApp />);
+  
+  // Log when render is complete
+  setTimeout(() => {
+    console.log("React render complete");
+  }, 1000);
+}
