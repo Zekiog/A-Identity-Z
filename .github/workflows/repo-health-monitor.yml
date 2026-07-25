@@ -1,0 +1,95 @@
+name: Repo Health Monitor
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Weekly Monday 06:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  health:
+    name: Health Snapshot
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Compute health metrics
+        id: metrics
+        shell: bash
+        run: |
+          mkdir -p artifacts
+          python3 - <<'PY'
+          import json, os, re, glob
+          from datetime import datetime, timezone
+          metrics = {
+              'timestamp': datetime.now(timezone.utc).isoformat(),
+              'repo': os.environ.get('GITHUB_REPOSITORY', ''),
+              'commit': os.environ.get('GITHUB_SHA', ''),
+              'features': {},
+              'workflows': {},
+              'dependencies': {},
+              'overall_health': 'unknown',
+          }
+          files = set(os.listdir('.'))
+          gh_files = set(os.listdir('.github')) if os.path.isdir('.github') else set()
+          wf_files = set(os.listdir('.github/workflows')) if os.path.isdir('.github/workflows') else set()
+          metrics['features'] = {
+              'has_license': any(f.lower().startswith('license') for f in files),
+              'has_readme': any(f.lower().startswith('readme') for f in files),
+              'has_security_md': any(os.path.exists(p) for p in ['SECURITY.md', '.github/SECURITY.md']),
+              'has_codeowners': any(os.path.exists(p) for p in ['CODEOWNERS', '.github/CODEOWNERS']),
+              'has_dependabot': os.path.exists('.github/dependabot.yml') or os.path.exists('.github/dependabot.yaml'),
+              'has_workflows': bool(wf_files),
+              'has_issue_templates': 'ISSUE_TEMPLATE' in gh_files or any(f.lower().startswith('issue_template') for f in gh_files),
+              'has_pr_template': any(f.lower().startswith('pull_request_template') for f in gh_files),
+          }
+          for wf in wf_files:
+              if wf.endswith('.yml') or wf.endswith('.yaml'):
+                  with open(f'.github/workflows/{wf}') as f:
+                      content = f.read()
+                  metrics['workflows'][wf] = {
+                      'has_timeout': 'timeout-minutes' in content,
+                      'has_concurrency': 'concurrency' in content,
+                      'has_permissions': 'permissions:' in content,
+                      'pinned_actions': len(re.findall(r'uses:\s*[\w\-]+/[\w\-]+@[0-9a-f]{40}', content)),
+                      'unpinned_actions': len(re.findall(r'uses:\s*[\w\-]+/[\w\-]+@v\d+', content)),
+                  }
+          score = 0
+          score += 1 if metrics['features']['has_license'] else 0
+          score += 1 if metrics['features']['has_readme'] else 0
+          score += 1 if metrics['features']['has_dependabot'] else 0
+          score += 1 if metrics['features']['has_codeowners'] else 0
+          score += 1 if metrics['features']['has_security_md'] else 0
+          score += 1 if metrics['features']['has_workflows'] else 0
+          total_unpinned = sum(w['unpinned_actions'] for w in metrics['workflows'].values())
+          total_actions = sum(w['pinned_actions'] + w['unpinned_actions'] for w in metrics['workflows'].values())
+          if total_actions > 0:
+              pct_pinned = 1 - (total_unpinned / total_actions)
+              score += pct_pinned
+          metrics['score'] = round(score / 6 * 100, 1)
+          metrics['overall_health'] = 'good' if metrics['score'] >= 80 else 'fair' if metrics['score'] >= 50 else 'poor'
+          with open('artifacts/health-metrics.json', 'w') as f:
+              json.dump(metrics, f, indent=2)
+          print(f"Health score: {metrics['score']}/{metrics['overall_health']}")
+          PY
+
+      - name: Upload health snapshot
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: health-snapshot
+          path: artifacts/health-metrics.json
+          retention-days: 90
+          if-no-files-found: warn
