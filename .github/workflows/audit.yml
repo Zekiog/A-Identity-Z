@@ -1,0 +1,288 @@
+name: Audit
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'  # Weekly Monday 05:00 UTC
+  workflow_dispatch:
+    inputs:
+      categories:
+        description: 'Audit categories (workflow,secrets,dependencies,code)'
+        required: false
+        default: 'all'
+      fail-on:
+        description: 'Severity to fail on'
+        required: false
+        default: 'none'
+  workflow_call:
+    inputs:
+      categories:
+        description: 'Audit categories'
+        required: false
+        type: string
+        default: 'all'
+      fail-on:
+        description: 'Severity to fail on'
+        required: false
+        type: string
+        default: 'none'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Compliance & Security Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      report-path: ${{ steps.report.outputs.path }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '20.x'
+
+      - name: Decode categories
+        id: cats
+        shell: bash
+        env:
+          INPUT_CATEGORIES: ${{ inputs.categories || github.event.inputs.categories || 'all' }}
+        run: |
+          if [ -z "$INPUT_CATEGORIES" ] || [ "$INPUT_CATEGORIES" = "all" ]; then
+            {
+              echo "wf=true"
+              echo "sec=true"
+              echo "dep=true"
+              echo "code=true"
+            } >> "$GITHUB_OUTPUT"
+          else
+            {
+              echo "wf=$(echo "$INPUT_CATEGORIES" | grep -q workflow && echo true || echo false)"
+              echo "sec=$(echo "$INPUT_CATEGORIES" | grep -q secrets && echo true || echo false)"
+              echo "dep=$(echo "$INPUT_CATEGORIES" | grep -q dependencies && echo true || echo false)"
+              echo "code=$(echo "$INPUT_CATEGORIES" | grep -q code && echo true || echo false)"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Initialize audit report
+        id: report
+        shell: bash
+        run: |
+          mkdir -p artifacts
+          REPORT="artifacts/audit-report.json"
+          echo "{\"timestamp\":\"$(date -u +%FT%TZ)\",\"repo\":\"${{ github.repository }}\",\"commit\":\"${{ github.sha }}\",\"categories\":{}}" > "$REPORT"
+          echo "path=$REPORT" >> "$GITHUB_OUTPUT"
+
+      - name: Audit workflow files
+        if: steps.cats.outputs.wf == 'true'
+        id: wf-audit
+        continue-on-error: true
+        shell: bash
+        env:
+          REPORT_PATH: ${{ steps.report.outputs.path }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, glob
+          report_path = os.environ.get('REPORT_PATH', 'artifacts/audit-report.json')
+          with open(report_path) as f:
+              report = json.load(f)
+          findings = []
+          for wf in glob.glob('.github/workflows/*.yml') + glob.glob('.github/workflows/*.yaml'):
+              with open(wf) as f:
+                  content = f.read()
+              unpinned = re.findall(r'uses:\s*[\w\-]+/[\w\-]+@v\d+', content)
+              no_timeout = 'timeout-minutes' not in content
+              no_concurrency = 'concurrency' not in content
+              no_permissions = 'permissions:' not in content
+              if unpinned:
+                  findings.append({'file': wf, 'severity': 'medium', 'rule': 'unpinned-action', 'count': len(unpinned)})
+              if no_timeout:
+                  findings.append({'file': wf, 'severity': 'low', 'rule': 'no-timeout'})
+              if no_concurrency:
+                  findings.append({'file': wf, 'severity': 'low', 'rule': 'no-concurrency'})
+              if no_permissions:
+                  findings.append({'file': wf, 'severity': 'medium', 'rule': 'no-permissions'})
+          report['categories']['workflow'] = findings
+          with open(report_path, 'w') as f:
+              json.dump(report, f, indent=2)
+          print(f"Workflow audit: {len(findings)} findings")
+          PY
+
+      - name: Audit secrets in source
+        if: steps.cats.outputs.sec == 'true'
+        id: sec-audit
+        continue-on-error: true
+        shell: bash
+        env:
+          REPORT_PATH: ${{ steps.report.outputs.path }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, glob
+          report_path = os.environ.get('REPORT_PATH', 'artifacts/audit-report.json')
+          with open(report_path) as f:
+              report = json.load(f)
+          findings = []
+          patterns = [
+              (r'(?i)(?:api[_-]?key|token|password|secret)\s*[:=]\s*["\047]([A-Za-z0-9+/=_\-]{20,})', 'hardcoded-secret'),
+              (r'(?i)aws_access_key_id\s*=\s*["\047]([A-Z0-9]{20})', 'aws-access-key'),
+              (r'-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY-----', 'private-key'),
+              (r'ghp_[A-Za-z0-9]{36}', 'github-pat'),
+              (r'gho_[A-Za-z0-9]{36}', 'github-oauth'),
+              (r'github_pat_[A-Za-z0-9_]{82}', 'github-fine-grained-pat'),
+              (r'xox[baprs]-[A-Za-z0-9-]{10,}', 'slack-token'),
+          ]
+          skip_dirs = {'.git', 'node_modules', 'dist', 'build', 'vendor', '.venv', '__pycache__', 'artifacts', 'coverage'}
+          def skip_files(p):
+              parts = set(p.split('/'))
+              return any(s in parts for s in skip_dirs) or p.endswith('.min.js') or p.endswith('.lock') or p.endswith('.svg') or p.endswith('.png') or p.endswith('.jpg')
+          for pattern, rule in patterns:
+              for filepath in glob.glob('**', recursive=True):
+                  if os.path.isfile(filepath) and not skip_files(filepath):
+                      try:
+                          with open(filepath, 'r', errors='ignore') as f:
+                              content = f.read()
+                          for m in re.finditer(pattern, content):
+                              findings.append({'file': filepath, 'severity': 'critical', 'rule': rule, 'match': m.group(0)[:50]})
+                              break
+                      except Exception:
+                          continue
+          report['categories']['secrets'] = findings
+          with open(report_path, 'w') as f:
+              json.dump(report, f, indent=2)
+          print(f"Secret audit: {len(findings)} findings")
+          PY
+
+      - name: Audit dependencies
+        if: steps.cats.outputs.dep == 'true'
+        id: dep-audit
+        continue-on-error: true
+        shell: bash
+        env:
+          REPORT_PATH: ${{ steps.report.outputs.path }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          report_path = os.environ.get('REPORT_PATH', 'artifacts/audit-report.json')
+          with open(report_path) as f:
+              report = json.load(f)
+          findings = []
+          if os.path.exists('package.json'):
+              with open('package.json') as f:
+                  pkg = json.load(f)
+              for k, v in {**pkg.get('dependencies', {}), **pkg.get('devDependencies', {})}.items():
+                      if isinstance(v, str):
+                          if v == '*' or v == 'latest':
+                              findings.append({'package': k, 'version': v, 'severity': 'high', 'rule': 'unpinned-version'})
+          if os.path.exists('requirements.txt'):
+              with open('requirements.txt') as f:
+                  for line in f:
+                      line = line.strip()
+                      if line and not line.startswith('#'):
+                          if '==' not in line and '>=' not in line and '<=' not in line:
+                              findings.append({'file': 'requirements.txt', 'severity': 'medium', 'rule': 'unpinned-python'})
+          report['categories']['dependencies'] = findings
+          with open(report_path, 'w') as f:
+              json.dump(report, f, indent=2)
+          print(f"Dependency audit: {len(findings)} findings")
+          PY
+
+      - name: Audit code quality
+        if: steps.cats.outputs.code == 'true'
+        id: code-audit
+        continue-on-error: true
+        shell: bash
+        env:
+          REPORT_PATH: ${{ steps.report.outputs.path }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          report_path = os.environ.get('REPORT_PATH', 'artifacts/audit-report.json')
+          with open(report_path) as f:
+              report = json.load(f)
+          findings = []
+          files = set(os.listdir('.'))
+          if not any(f.lower().startswith('license') for f in files):
+              findings.append({'severity': 'low', 'rule': 'no-license'})
+          if not any(f.lower().startswith('readme') for f in files):
+              findings.append({'severity': 'low', 'rule': 'no-readme'})
+          if not any(os.path.exists(p) for p in ['SECURITY.md', '.github/SECURITY.md', 'docs/SECURITY.md']):
+              findings.append({'severity': 'low', 'rule': 'no-security-md'})
+          if not any(os.path.exists(p) for p in ['CODEOWNERS', '.github/CODEOWNERS']):
+              findings.append({'severity': 'low', 'rule': 'no-codeowners'})
+          if not os.path.exists('.editorconfig'):
+              findings.append({'severity': 'info', 'rule': 'no-editorconfig'})
+          report['categories']['code'] = findings
+          with open(report_path, 'w') as f:
+              json.dump(report, f, indent=2)
+          print(f"Code audit: {len(findings)} findings")
+          PY
+
+      - name: Summarize findings
+        if: always()
+        id: summary
+        shell: bash
+        env:
+          REPORT_PATH: ${{ steps.report.outputs.path }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          report_path = os.environ.get('REPORT_PATH', 'artifacts/audit-report.json')
+          with open(report_path) as f:
+              report = json.load(f)
+          severity_count = {'critical': 0, 'high': 0, 'medium': 0, 'low': 0, 'info': 0}
+          for cat, findings in report['categories'].items():
+              for f in findings:
+                  sev = f.get('severity', 'info')
+                  severity_count[sev] = severity_count.get(sev, 0) + 1
+          report['summary'] = severity_count
+          with open(report_path, 'w') as f:
+              json.dump(report, f, indent=2)
+          print("Audit summary:")
+          for sev, cnt in severity_count.items():
+              print(f"  {sev}: {cnt}")
+          PY
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: audit-report
+          path: artifacts/audit-report.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Apply fail threshold
+        if: always()
+        shell: bash
+        env:
+          FAIL_ON: ${{ inputs.fail-on || github.event.inputs.fail-on || 'none' }}
+          REPORT_PATH: ${{ steps.report.outputs.path }}
+        run: |
+          if [ "$FAIL_ON" != "none" ]; then
+            case "$FAIL_ON" in
+              critical) SEVERITIES="critical" ;;
+              high) SEVERITIES="critical high" ;;
+              medium) SEVERITIES="critical high medium" ;;
+              low) SEVERITIES="critical high medium low" ;;
+              *) SEVERITIES="" ;;
+            esac
+            for sev in $SEVERITIES; do
+              count=$(python3 -c "import json; r=json.load(open('$REPORT_PATH')); print(r.get('summary',{}).get('$sev', 0))")
+              if [ "$count" -gt 0 ]; then
+                echo "::error::Found $count $sev severity finding(s) — failing per fail-on=$FAIL_ON"
+                exit 1
+              fi
+            done
+          fi
+          echo "Audit pass (fail-on=$FAIL_ON)"
