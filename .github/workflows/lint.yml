@@ -1,0 +1,143 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/**
+      - '**/*.js'
+      - '**/*.ts'
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '**/*.sh'
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/**
+      - '**/*.js'
+      - '**/*.ts'
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '**/*.sh'
+  schedule:
+    - cron: '0 6 * * 1'  # Weekly Monday 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      linters:
+        description: 'Linters to run'
+        required: false
+        default: 'all'
+  workflow_call:
+    inputs:
+      linters:
+        description: 'Comma-separated linters to run'
+        required: false
+        type: string
+        default: 'all'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '20.x'
+
+      - name: Resolve linters
+        id: linters
+        shell: bash
+        env:
+          INPUT_LINTERS: ${{ inputs.linters || github.event.inputs.linters || 'all' }}
+        run: |
+          ALL="eslint,shellcheck,yamllint,markdownlint,actionlint,prettier"
+          INPUT="${INPUT_LINTERS:-all}"
+          if [ "$INPUT" = "all" ]; then
+            INPUT="$ALL"
+          fi
+          echo "selected=$INPUT" >> "$GITHUB_OUTPUT"
+          echo "Selected linters: $INPUT"
+
+      - name: Install lint dependencies
+        if: |
+          contains(steps.linters.outputs.selected, 'eslint') ||
+          contains(steps.linters.outputs.selected, 'markdownlint') ||
+          contains(steps.linters.outputs.selected, 'prettier')
+        shell: bash
+        run: |
+          npm install --no-save --ignore-scripts \
+            eslint@9 \
+            markdownlint-cli@0.45 \
+            prettier@3 2>/dev/null || true
+
+      - name: Run ESLint
+        if: contains(steps.linters.outputs.selected, 'eslint')
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [ -f ".eslintrc.json" ] || [ -f ".eslintrc.js" ] || [ -f "eslint.config.js" ] || [ -f "eslint.config.mjs" ]; then
+            npx eslint --max-warnings 0 . 2>&1 || echo "::warning::ESLint found issues"
+          else
+            echo "::notice::No ESLint config found, skipping"
+          fi
+
+      - name: Run Prettier check
+        if: contains(steps.linters.outputs.selected, 'prettier')
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [ -f ".prettierrc" ] || [ -f ".prettierrc.json" ] || [ -f ".prettierrc.js" ] || [ -f "prettier.config.js" ]; then
+            npx prettier --check . 2>&1 || echo "::warning::Prettier found formatting issues"
+          else
+            echo "::notice::No Prettier config found, skipping"
+          fi
+
+      - name: Run Markdownlint
+        if: contains(steps.linters.outputs.selected, 'markdownlint')
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [ -f ".markdownlint.json" ] || [ -f ".markdownlint.yaml" ] || [ -f ".markdownlint.yml" ]; then
+            npx markdownlint '**/*.md' --ignore=node_modules 2>&1 || echo "::warning::Markdownlint found issues"
+          else
+            echo "::notice::No markdownlint config found, skipping"
+          fi
+
+      - name: Run ShellCheck
+        if: contains(steps.linters.outputs.selected, 'shellcheck')
+        continue-on-error: true
+        shell: bash
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -yqq shellcheck
+          find . -type f -name '*.sh' -not -path './node_modules/*' -not -path './.git/*' -exec shellcheck {} + 2>&1 || echo "::warning::ShellCheck found issues"
+
+      - name: Run YAMLlint
+        if: contains(steps.linters.outputs.selected, 'yamllint')
+        continue-on-error: true
+        shell: bash
+        run: |
+          pip install --quiet yamllint
+          yamllint -d '{extends: default, rules: {line-length: disable, document-start: disable, truthy: {check-keys: false}}}' . 2>&1 || echo "::warning::yamllint found issues"
+
+      - name: Run actionlint
+        if: contains(steps.linters.outputs.selected, 'actionlint')
+        continue-on-error: true
+        shell: bash
+        run: |
+          bash <(curl -fsSL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          ./actionlint -color 2>&1 || echo "::warning::actionlint found issues"
