@@ -10,7 +10,7 @@ litellm>=1.52.3
 langsmith>=0.1.142
 kubernetes==29.0.0
 paramiko==3.4.0
-tenacity==8.2.3
+tenacity==9.1.4
 python-json-logger==2.0.7
 pytest==8.0.0
 pytest-cov==4.1.0
