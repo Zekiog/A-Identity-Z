@@ -70,6 +70,24 @@ We combine native human language expertise with AI workflow tooling to deliver o
 
 ---
 
+## Project Status
+
+**Status:** ✅ **Active** — services are live and accepting engagements.
+
+This repository tracks the public-facing side of A-Identity-Z: tooling, prompts, evaluation harnesses, and case studies for the multilingual services pipeline. It is **not** a SaaS codebase — the production delivery stack lives in private infrastructure.
+
+### What you'll find here
+- Public workflow templates (n8n exports)
+- Localization prompt packs and evaluation scripts
+- Reference implementations of QA / human-in-the-loop gates
+
+### Roadmap (next 90 days)
+- [ ] Public release of the multilingual QA scoring notebook
+- [ ] n8n workflow template: TR ↔ NO legal translation pipeline
+- [ ] Case study: content-safety evaluation across 7 languages
+
+---
+
 ## Contact
 
 <p>
@@ -85,5 +103,5 @@ We combine native human language expertise with AI workflow tooling to deliver o
 ---
 
 <p align="center">
-  <sub>Last updated: May 2026 · Trondheim, Norway</sub>
+  <sub>Last updated: August 2026 · Trondheim, Norway</sub>
 </p>
