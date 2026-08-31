@@ -105,3 +105,9 @@ This repository tracks the public-facing side of A-Identity-Z: tooling, prompts,
 <p align="center">
   <sub>Last updated: August 2026 · Trondheim, Norway</sub>
 </p>
+
+<!-- BADGES-START -->
+[![CI](https://github.com/Zekiog/A-Identity-Z/actions/workflows/ci.yml/badge.svg)](https://github.com/Zekiog/A-Identity-Z/actions/workflows/ci.yml)
+![License](https://img.shields.io/github/license/Zekiog/A-Identity-Z)
+![Last commit](https://img.shields.io/github/last-commit/Zekiog/A-Identity-Z)
+<!-- BADGES-END -->
