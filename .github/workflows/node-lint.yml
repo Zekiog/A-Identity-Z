@@ -1,5 +1,7 @@
 name: Node Lint
 on: [pull_request]
+permissions:
+  contents: read
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -8,15 +10,12 @@ jobs:
         working-directory: A_ID/frontend
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
       - name: Install frontend dependencies
-        run: npm ci || npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
       - name: Lint frontend
-        run: |
-          if [ -f package.json ] && jq -e '.scripts.lint' package.json >/dev/null 2>&1; then
-            npm run lint
-          else
-            npx eslint . || true
-          fi
+        run: npm run lint
