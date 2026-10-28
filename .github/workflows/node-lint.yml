@@ -3,13 +3,18 @@ on: [pull_request]
 jobs:
   lint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: A_ID/frontend
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
-      - run: npm ci || npm install
-      - run: |
+      - name: Install frontend dependencies
+        run: npm ci || npm install --legacy-peer-deps
+      - name: Lint frontend
+        run: |
           if [ -f package.json ] && jq -e '.scripts.lint' package.json >/dev/null 2>&1; then
             npm run lint
           else
