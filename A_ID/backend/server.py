@@ -1,11 +1,11 @@
-from fastapi import FastAPI
-from dotenv import load_dotenv
-from starlette.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
-import uvicorn
-import os
 import logging
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+from fastapi import FastAPI
+from motor.motor_asyncio import AsyncIOMotorClient
+from starlette.middleware.cors import CORSMiddleware
 
 # /backend 
 ROOT_DIR = Path(__file__).parent
