@@ -1,64 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Projects = () => {
-  // Sample projects data
-  const [projects, setProjects] = useState([
-    {
-      id: 1,
-      name: 'NorTech Solutions Website',
-      client: 'NorTech Solutions',
-      type: 'Translation & Localization',
-      budget: '€12,500',
-      status: 'In Progress',
-      deadline: '2023-08-15',
-      assigned: ['Sophia Lindberg', 'Lars Nilsson'],
-      progress: 65
-    },
-    {
-      id: 2,
-      name: 'GreenStream Energy Documentation',
-      client: 'GreenStream Energy',
-      type: 'Technical Translation',
-      budget: '€8,750',
-      status: 'Completed',
-      deadline: '2023-06-20',
-      assigned: ['Erik Johansson', 'Anna Bergman'],
-      progress: 100
-    },
-    {
-      id: 3,
-      name: 'Global Connect AI Integration',
-      client: 'Global Connect',
-      type: 'AI Implementation',
-      budget: '€24,000',
-      status: 'In Progress',
-      deadline: '2023-09-30',
-      assigned: ['Maria Rodriguez', 'Erik Johansson'],
-      progress: 40
-    },
-    {
-      id: 4,
-      name: 'Nordic Innovations Product Catalog',
-      client: 'Nordic Innovations',
-      type: 'Translation & Design',
-      budget: '€15,300',
-      status: 'Not Started',
-      deadline: '2023-10-15',
-      assigned: ['Sophia Lindberg'],
-      progress: 0
-    },
-    {
-      id: 5,
-      name: 'TechFlow Automation System',
-      client: 'TechFlow Systems',
-      type: 'Automation Implementation',
-      budget: '€18,600',
-      status: 'On Hold',
-      deadline: '2023-11-01',
-      assigned: ['Anna Bergman', 'Maria Rodriguez'],
-      progress: 15
-    }
-  ]);
+  const projects = [];
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -77,8 +20,6 @@ const Projects = () => {
 
   const getTypeColor = (type) => {
     if (type.includes('Translation')) return 'bg-primary-100 text-primary-800';
-    if (type.includes('AI')) return 'bg-purple-100 text-purple-800';
-    if (type.includes('Automation')) return 'bg-orange-100 text-orange-800';
     return 'bg-gray-100 text-gray-800';
   };
 
@@ -86,15 +27,10 @@ const Projects = () => {
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center sm:justify-between">
         <h1 className="text-2xl font-semibold text-gray-900">Projects</h1>
-        <div className="mt-3 sm:mt-0 sm:ml-4">
-          <button
-            type="button"
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-          >
-            Create Project
-          </button>
-        </div>
       </div>
+      <p className="mt-4 max-w-2xl text-sm text-gray-600">
+        Demo. No projects are stored.
+      </p>
 
       {/* Project Status Overview */}
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

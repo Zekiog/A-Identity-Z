@@ -1,59 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const AIModels = () => {
-  // Sample AI models data
-  const [models, setModels] = useState([
-    {
-      id: 1,
-      name: 'TranslationGPT-Nordic',
-      type: 'Language Model',
-      languages: ['Norwegian', 'Swedish', 'Danish', 'English'],
-      status: 'Active',
-      lastTraining: '2023-06-15',
-      accuracy: 94.8,
-      deployments: 12
-    },
-    {
-      id: 2,
-      name: 'TechDocExtractor',
-      type: 'Information Extraction',
-      languages: ['English', 'Norwegian', 'German'],
-      status: 'Active',
-      lastTraining: '2023-05-23',
-      accuracy: 91.2,
-      deployments: 8
-    },
-    {
-      id: 3,
-      name: 'SentimentAnalyzer-Multilingual',
-      type: 'Sentiment Analysis',
-      languages: ['English', 'Norwegian', 'Swedish', 'Danish', 'German', 'Turkish'],
-      status: 'In Training',
-      lastTraining: '2023-07-02',
-      accuracy: 89.5,
-      deployments: 0
-    },
-    {
-      id: 4,
-      name: 'VoiceTranscriber-Nordic',
-      type: 'Speech Recognition',
-      languages: ['Norwegian', 'Swedish', 'Danish'],
-      status: 'Active',
-      lastTraining: '2023-04-10',
-      accuracy: 88.7,
-      deployments: 5
-    },
-    {
-      id: 5,
-      name: 'LegalDocSummarizer',
-      type: 'Text Summarization',
-      languages: ['English', 'Norwegian', 'German'],
-      status: 'Inactive',
-      lastTraining: '2023-03-28',
-      accuracy: 86.4,
-      deployments: 0
-    }
-  ]);
+  const models = [];
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -78,16 +26,11 @@ const AIModels = () => {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900">AI Models</h1>
-        <div className="mt-3 sm:mt-0 sm:ml-4">
-          <button
-            type="button"
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-          >
-            Create New Model
-          </button>
-        </div>
+        <h1 className="text-2xl font-semibold text-gray-900">Models</h1>
       </div>
+      <p className="mt-4 max-w-2xl text-sm text-gray-600">
+        Demo. No models are connected.
+      </p>
 
       {/* AI Models Overview Cards */}
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -102,7 +45,7 @@ const AIModels = () => {
               <div className="ml-5 w-0 flex-1">
                 <dl>
                   <dt className="text-sm font-medium text-gray-500 truncate">
-                    Total AI Models
+                    Listed models
                   </dt>
                   <dd className="flex items-baseline">
                     <div className="text-2xl font-semibold text-gray-900">
@@ -193,9 +136,6 @@ const AIModels = () => {
                     <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                       Deployments
                     </th>
-                    <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                      <span className="sr-only">Actions</span>
-                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
@@ -225,17 +165,6 @@ const AIModels = () => {
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         {model.deployments}
-                      </td>
-                      <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <a href="#" className="text-primary-600 hover:text-primary-900 mr-4">
-                          Train
-                        </a>
-                        <a href="#" className="text-primary-600 hover:text-primary-900 mr-4">
-                          Deploy
-                        </a>
-                        <a href="#" className="text-red-600 hover:text-red-900">
-                          Delete
-                        </a>
                       </td>
                     </tr>
                   ))}

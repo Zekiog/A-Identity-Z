@@ -6,12 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The repository root is mostly presentation/metadata. The actual application lives in `A_ID/`.
 
-- Root `README.md` — marketing/company description (A-Identity-Z multilingual AI services). Not a developer doc.
+- Root `README.md` — short description of the site for translation, interpretation, and localisation. Not a developer doc.
 - `LICENSE` — MIT.
 - `.github/workflows/` — see "CI / deployment" below. These workflows do **not** match the app in `A_ID/` and should be treated as scaffolding.
-- `A_ID/` — the real full-stack app: a React frontend (public marketing site + admin SPA) and a FastAPI backend.
+- `A_ID/` — the real full-stack app: a React frontend (public site + admin SPA) and a FastAPI backend.
 
-Note: `A_ID/README.md` is a placeholder ("Here are your Instructions") — ignore it.
+`A_ID/README.md` notes what that folder holds.
 
 ## App architecture (`A_ID/`)
 
@@ -20,13 +20,13 @@ Two independent services that are developed and run separately:
 ### Frontend (`A_ID/frontend/`) — the substantial part
 - Create React App (`react-scripts` 5) with **React 19**, Tailwind CSS, `framer-motion`, and `react-i18next`. Uses **yarn** (`yarn.lock` present).
 - `src/index.js` → `src/routes.js` is the entry. `routes.js` defines two top-level route trees wrapped in `AuthProvider`:
-  - `/*` → `src/App.js` — the public marketing single-page site (Navbar, Hero, Services, About, Testimonials, FAQ, CTA, Footer). All one file; sections are local components driven by `framer-motion` + `react-intersection-observer` scroll animations.
+  - `/*` → `src/App.js` — the public single-page site (Navbar, Hero, Services, About, FAQ, Contact, Footer). All one file; sections are local components driven by `framer-motion` + `react-intersection-observer` scroll animations. Visible copy comes from `public/locales/`.
   - `/admin/*` → `src/admin/AdminApp.js` — the admin dashboard SPA. Sidebar nav + nested routes to pages in `src/admin/pages/` (Dashboard, UserManagement, Projects, TranslationManagement, AIModels, Settings, Login).
 - **Auth is mocked.** `src/admin/hooks/useAuth.js` accepts any login, fabricates a user with a hardcoded `demo-token-12345`, and persists it to `localStorage` under `adminUser`. There is no real auth backend wired up. The comment in the file explicitly marks where a real API call belongs.
 - **i18n** (`src/i18n.js`): 7 languages — `en, no, sv, da, de, tr, ar`. `en` is the fallback. Translations are loaded lazily over HTTP from `/locales/{{lng}}/{{ns}}.json`, i.e. from `public/locales/`. Language is detected from URL path first, then localStorage, then navigator. Arabic is RTL — `document.documentElement.dir`/`lang` are updated on language change, so don't hardcode LTR layout assumptions.
   - There are two locale trees: `public/locales/` (the ones actually served/loaded at runtime) and `src/locales/` (not loaded by the HTTP backend). When adding/editing translations, edit `public/locales/`.
 - **Design tokens** live in `tailwind.config.js`: custom `primary`/`secondary` color scales, `neutral.dark`/`neutral.light`, `display`/`headline`/`subheadline` fluid font sizes, and `glass*` shadows. Prefer these tokens over ad-hoc values; the existing components rely on them heavily (e.g. `text-display`, `shadow-glass-xl`, `bg-neutral-dark`).
-- `REACT_APP_BACKEND_URL` (in `frontend/.env`) is read in `App.js` but the public site does not yet call the backend.
+- `REACT_APP_BACKEND_URL` is set in `frontend/.env`. The public site does not call the backend.
 
 ### Backend (`A_ID/backend/`) — currently a stub
 - FastAPI + MongoDB via `motor` (async). `server.py` connects to Mongo using `MONGO_URL` and `DB_NAME` from `backend/.env`, sets permissive CORS (`allow_origins=["*"]`), and exposes a single `GET /` returning `{"message": "Hello World"}`.

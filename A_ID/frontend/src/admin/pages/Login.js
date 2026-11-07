@@ -23,10 +23,10 @@ const Login = () => {
             <span className="text-primary-400">A-</span>Identity<span className="text-secondary-400">-Z</span>
           </h1>
           <h2 className="text-center text-xl font-bold text-white">
-            Admin Console
+            Demo
           </h2>
           <p className="mt-2 text-center text-sm text-white/70">
-            Sign in to access the admin dashboard
+            Any email and password are accepted. The session stays in this browser and is not sent to a server.
           </p>
         </div>
         
@@ -50,7 +50,7 @@ const Login = () => {
                   autoComplete="email"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-white/20 rounded-md bg-white/5 text-white placeholder-white/50 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
-                  placeholder="admin@aidentityz.com"
+                  placeholder="email"
                   {...register('email', { required: 'Email is required' })}
                 />
                 {errors.email && (
@@ -77,26 +77,6 @@ const Login = () => {
                 {errors.password && (
                   <p className="mt-1 text-sm text-red-400">{errors.password.message}</p>
                 )}
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-white/20 rounded bg-white/5"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-white/70">
-                  Remember me
-                </label>
-              </div>
-
-              <div className="text-sm">
-                <a href="#" className="font-medium text-primary-300 hover:text-primary-200">
-                  Forgot your password?
-                </a>
               </div>
             </div>
 

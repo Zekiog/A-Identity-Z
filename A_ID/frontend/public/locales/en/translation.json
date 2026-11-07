@@ -6,138 +6,89 @@
     "faq": "FAQ"
   },
   "hero": {
-    "tagline": "Norway's Premier AI & Translation Service",
-    "heading": "Bridging Languages. Empowering Automation.",
-    "description": "A-Identity-Z delivers seamless translation services, reliable automation systems, and personalized AI integrations for global enterprises.",
+    "tagline": "Trondheim, Norway",
+    "heading": "Translation, interpretation, and localisation.",
+    "description": "A-Identity-Z is a site for translation, interpretation, and localisation.",
     "cta": {
-      "primary": "Get Started",
-      "secondary": "Explore Services"
+      "primary": "Contact",
+      "secondary": "Services"
     }
   },
   "services": {
-    "title": "Our Services",
-    "heading": "Comprehensive Solutions",
-    "description": "We offer integrated services across translation, automation, and AI technologies to drive your business forward in the digital era.",
+    "title": "Services",
+    "heading": "Translation, interpretation, and localisation",
+    "description": "This site is for translation, interpretation, and localisation.",
     "items": {
       "translation": {
-        "title": "Translation & Interpretation",
-        "description": "Professional language services with cultural sensitivity and domain expertise for global communication."
+        "title": "Translation",
+        "description": "Written translation."
       },
-      "ai": {
-        "title": "AI Integration",
-        "description": "Personalized and trained artificial intelligence solutions tailored to your specific business needs."
+      "interpretation": {
+        "title": "Interpretation",
+        "description": "Spoken interpretation."
       },
-      "automation": {
-        "title": "Automation Systems",
-        "description": "Reliable and traceable automation workflows that enhance efficiency and reduce manual operations."
-      }
-    },
-    "learnMore": "Learn more"
-  },
-  "about": {
-    "tagline": "About A-Identity-Z",
-    "heading": "Global Impact, Nordic Precision",
-    "description1": "Established in Trondheim, Norway, A-Identity-Z is committed to providing world-class translation, automation, and AI services with Nordic attention to detail and quality.",
-    "description2": "Our mission is to ensure the long-term, sustainable, and efficient operation of language services and AI solutions while prioritizing global customer satisfaction and responsible digital transformation.",
-    "features": {
-      "sustainable": {
-        "title": "Sustainable",
-        "description": "Long-term focused solutions"
-      },
-      "traceable": {
-        "title": "Traceable",
-        "description": "Transparent operations"
-      },
-      "reliable": {
-        "title": "Reliable",
-        "description": "Consistent performance"
-      },
-      "global": {
-        "title": "Global",
-        "description": "Worldwide services"
+      "localisation": {
+        "title": "Localisation",
+        "description": "Adapting text for a language and a place."
       }
     }
   },
-  "testimonials": {
-    "tagline": "Testimonials",
-    "heading": "What Our Clients Say",
-    "description": "Don't just take our word for it. Here's what our clients have to say about our services and collaborations."
+  "about": {
+    "tagline": "About",
+    "heading": "A-Identity-Z",
+    "description1": "A-Identity-Z is a site for translation, interpretation, and localisation.",
+    "description2": "Based in Trondheim, Norway."
   },
   "faq": {
     "tagline": "FAQ",
-    "heading": "Frequently Asked Questions",
-    "description": "Get answers to common questions about our services, implementation process, and support options."
-  },
-  "contact": {
-    "tagline": "Get Started",
-    "heading": "Ready to Transform Your Global Operations?",
-    "description": "Connect with our experts to discuss your specific needs and discover how A-Identity-Z can help you achieve seamless global communication and efficient operations.",
-    "headquarters": "Headquarters",
-    "location": "Trondheim, Norway",
-    "emailUs": "Email Us",
-    "email": "contact@aidentityz.com",
-    "formTitle": "Request Information",
-    "form": {
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "email": "Email Address",
-      "company": "Company",
-      "service": "Service of Interest",
-      "serviceOptions": {
-        "select": "Select a service",
-        "translation": "Translation & Interpretation",
-        "ai": "AI Integration",
-        "automation": "Automation Systems",
-        "multiple": "Multiple Services"
+    "heading": "Questions",
+    "description": "Short answers about this site.",
+    "items": {
+      "what": {
+        "question": "What is this site?",
+        "answer": "A site for translation, interpretation, and localisation."
       },
-      "message": "Message",
-      "messagePlaceholder": "Tell us about your project",
-      "submit": "Submit Request",
-      "privacy": "By submitting this form, you agree to our Privacy Policy and Terms of Service."
+      "languages": {
+        "question": "Which languages does the interface use?",
+        "answer": "English, Norwegian, Swedish, Danish, German, Turkish, and Arabic."
+      },
+      "contact": {
+        "question": "How can I get in touch?",
+        "answer": "Email zeki@multilingual.no or visit multilingual.no."
+      }
     }
   },
+  "contact": {
+    "tagline": "Contact",
+    "heading": "Contact",
+    "description": "For translation, interpretation, and localisation.",
+    "locationLabel": "Location",
+    "location": "Trondheim, Norway",
+    "emailLabel": "Email",
+    "email": "zeki@multilingual.no",
+    "siteLabel": "Site",
+    "siteName": "multilingual.no",
+    "siteUrl": "https://multilingual.no"
+  },
   "footer": {
-    "cta": {
-      "heading": "Ready to elevate your global operations?",
-      "description": "Start your journey with A-Identity-Z today.",
-      "button": "Get Started Now"
-    },
-    "description": "Bridging languages and empowering automation with Nordic precision and global expertise.",
-    "serviceLinks": {
-      "heading": "Services",
-      "translation": "Translation Services",
-      "interpretation": "Interpretation",
-      "ai": "AI Integration",
-      "automation": "Automation Systems",
-      "custom": "Custom Solutions"
-    },
-    "companyLinks": {
-      "heading": "Company",
-      "about": "About Us",
-      "team": "Our Team",
-      "careers": "Careers",
-      "press": "Press",
-      "contact": "Contact"
-    },
-    "legalLinks": {
-      "heading": "Legal",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "cookies": "Cookie Policy",
-      "gdpr": "GDPR Compliance"
-    },
-    "copyright": "© 2024 A-Identity-Z. All rights reserved. Registered in Norway."
+    "description": "Site for translation, interpretation, and localisation.",
+    "onThisPage": "On this page",
+    "services": "Services",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "copyright": "Mehmet Zeki Oguz"
   },
   "languageSwitcher": {
     "label": "Change language",
     "languages": {
       "en": "English",
-      "no": "Norwegian",
-      "sv": "Swedish",
-      "da": "Danish",
-      "de": "German",
-      "tr": "Turkish",
-      "ar": "Arabic"
+      "no": "Norsk",
+      "sv": "Svenska",
+      "da": "Dansk",
+      "de": "Deutsch",
+      "tr": "Türkçe",
+      "ar": "العربية"
     }
   }
 }

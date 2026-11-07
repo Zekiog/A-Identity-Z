@@ -1,143 +1,94 @@
 {
   "navigation": {
-    "home": "Startseite",
-    "services": "Dienstleistungen",
-    "about": "Über uns",
-    "faq": "FAQ"
+    "home": "Start",
+    "services": "Leistungen",
+    "about": "Über",
+    "faq": "Fragen"
   },
   "hero": {
-    "tagline": "Norwegens führender KI- und Übersetzungsdienst",
-    "heading": "Sprachen verbinden. Automatisierung stärken.",
-    "description": "A-Identity-Z bietet nahtlose Übersetzungsdienste, zuverlässige Automatisierungssysteme und personalisierte KI-Integrationen für globale Unternehmen.",
+    "tagline": "Trondheim, Norwegen",
+    "heading": "Übersetzung, Dolmetschen und Lokalisierung.",
+    "description": "A-Identity-Z ist eine Website für Übersetzung, Dolmetschen und Lokalisierung.",
     "cta": {
-      "primary": "Loslegen",
-      "secondary": "Dienstleistungen erkunden"
+      "primary": "Kontakt",
+      "secondary": "Leistungen"
     }
   },
   "services": {
-    "title": "Unsere Dienstleistungen",
-    "heading": "Umfassende Lösungen",
-    "description": "Wir bieten integrierte Dienstleistungen in den Bereichen Übersetzung, Automatisierung und KI-Technologien, um Ihr Unternehmen im digitalen Zeitalter voranzubringen.",
+    "title": "Leistungen",
+    "heading": "Übersetzung, Dolmetschen und Lokalisierung",
+    "description": "Diese Website ist für Übersetzung, Dolmetschen und Lokalisierung.",
     "items": {
       "translation": {
-        "title": "Übersetzung & Dolmetschen",
-        "description": "Professionelle Sprachdienstleistungen mit kultureller Sensibilität und Fachkompetenz für globale Kommunikation."
+        "title": "Übersetzung",
+        "description": "Schriftliche Übersetzung."
       },
-      "ai": {
-        "title": "KI-Integration",
-        "description": "Personalisierte und trainierte künstliche Intelligenzlösungen, die auf Ihre spezifischen Geschäftsanforderungen zugeschnitten sind."
+      "interpretation": {
+        "title": "Dolmetschen",
+        "description": "Mündliches Dolmetschen."
       },
-      "automation": {
-        "title": "Automatisierungssysteme",
-        "description": "Zuverlässige und nachvollziehbare Automatisierungsworkflows, die die Effizienz steigern und manuelle Vorgänge reduzieren."
+      "localisation": {
+        "title": "Lokalisierung",
+        "description": "Text an eine Sprache und einen Ort anpassen."
       }
-    },
-    "learnMore": "Mehr erfahren"
+    }
   },
   "about": {
-    "tagline": "Über A-Identity-Z",
-    "heading": "Globale Wirkung, nordische Präzision",
-    "description1": "A-Identity-Z mit Sitz in Trondheim, Norwegen, verpflichtet sich, erstklassige Übersetzungs-, Automatisierungs- und KI-Dienstleistungen mit nordischer Aufmerksamkeit für Details und Qualität zu liefern.",
-    "description2": "Unsere Mission ist es, den langfristigen, nachhaltigen und effizienten Betrieb von Sprachdienstleistungen und KI-Lösungen zu gewährleisten und dabei globale Kundenzufriedenheit und verantwortungsvolle digitale Transformation zu priorisieren.",
-    "features": {
-      "sustainable": {
-        "title": "Nachhaltig",
-        "description": "Langfristig ausgerichtete Lösungen"
+    "tagline": "Über",
+    "heading": "A-Identity-Z",
+    "description1": "A-Identity-Z ist eine Website für Übersetzung, Dolmetschen und Lokalisierung.",
+    "description2": "Standort: Trondheim, Norwegen."
+  },
+  "faq": {
+    "tagline": "Fragen",
+    "heading": "Fragen",
+    "description": "Kurze Antworten zu dieser Website.",
+    "items": {
+      "what": {
+        "question": "Worum geht es auf dieser Website?",
+        "answer": "Eine Website für Übersetzung, Dolmetschen und Lokalisierung."
       },
-      "traceable": {
-        "title": "Nachvollziehbar",
-        "description": "Transparente Abläufe"
+      "languages": {
+        "question": "Welche Sprachen hat die Oberfläche?",
+        "answer": "Englisch, Norwegisch, Schwedisch, Dänisch, Deutsch, Türkisch und Arabisch."
       },
-      "reliable": {
-        "title": "Zuverlässig",
-        "description": "Konsistente Leistung"
-      },
-      "global": {
-        "title": "Global",
-        "description": "Weltweite Dienstleistungen"
+      "contact": {
+        "question": "Wie kann ich Kontakt aufnehmen?",
+        "answer": "E-Mail an zeki@multilingual.no oder multilingual.no."
       }
     }
   },
-  "testimonials": {
-    "tagline": "Referenzen",
-    "heading": "Was unsere Kunden sagen",
-    "description": "Nehmen Sie nicht nur unser Wort dafür. Hier ist, was unsere Kunden über unsere Dienstleistungen und Zusammenarbeit sagen."
-  },
-  "faq": {
-    "tagline": "FAQ",
-    "heading": "Häufig gestellte Fragen",
-    "description": "Erhalten Sie Antworten auf häufige Fragen zu unseren Dienstleistungen, dem Implementierungsprozess und den Unterstützungsmöglichkeiten."
-  },
   "contact": {
-    "tagline": "Loslegen",
-    "heading": "Bereit, Ihre globalen Abläufe zu transformieren?",
-    "description": "Kontaktieren Sie unsere Experten, um Ihre spezifischen Bedürfnisse zu besprechen und zu entdecken, wie A-Identity-Z Ihnen helfen kann, nahtlose globale Kommunikation und effiziente Abläufe zu erreichen.",
-    "headquarters": "Hauptsitz",
+    "tagline": "Kontakt",
+    "heading": "Kontakt",
+    "description": "Für Übersetzung, Dolmetschen und Lokalisierung.",
+    "locationLabel": "Ort",
     "location": "Trondheim, Norwegen",
-    "emailUs": "E-Mail an uns",
-    "email": "kontakt@aidentityz.com",
-    "formTitle": "Informationen anfordern",
-    "form": {
-      "firstName": "Vorname",
-      "lastName": "Nachname",
-      "email": "E-Mail-Adresse",
-      "company": "Unternehmen",
-      "service": "Gewünschte Dienstleistung",
-      "serviceOptions": {
-        "select": "Dienstleistung auswählen",
-        "translation": "Übersetzung & Dolmetschen",
-        "ai": "KI-Integration",
-        "automation": "Automatisierungssysteme",
-        "multiple": "Mehrere Dienstleistungen"
-      },
-      "message": "Nachricht",
-      "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt",
-      "submit": "Anfrage absenden",
-      "privacy": "Mit dem Absenden dieses Formulars stimmen Sie unserer Datenschutzrichtlinie und unseren Nutzungsbedingungen zu."
-    }
+    "emailLabel": "E-Mail",
+    "email": "zeki@multilingual.no",
+    "siteLabel": "Website",
+    "siteName": "multilingual.no",
+    "siteUrl": "https://multilingual.no"
   },
   "footer": {
-    "cta": {
-      "heading": "Bereit, Ihre globalen Abläufe zu verbessern?",
-      "description": "Beginnen Sie Ihre Reise mit A-Identity-Z noch heute.",
-      "button": "Jetzt loslegen"
-    },
-    "description": "Sprachen verbinden und Automatisierung mit nordischer Präzision und globaler Expertise stärken.",
-    "serviceLinks": {
-      "heading": "Dienstleistungen",
-      "translation": "Übersetzungsdienste",
-      "interpretation": "Dolmetschen",
-      "ai": "KI-Integration",
-      "automation": "Automatisierungssysteme",
-      "custom": "Individuelle Lösungen"
-    },
-    "companyLinks": {
-      "heading": "Unternehmen",
-      "about": "Über uns",
-      "team": "Unser Team",
-      "careers": "Karriere",
-      "press": "Presse",
-      "contact": "Kontakt"
-    },
-    "legalLinks": {
-      "heading": "Rechtliches",
-      "privacy": "Datenschutzrichtlinie",
-      "terms": "Nutzungsbedingungen",
-      "cookies": "Cookie-Richtlinie",
-      "gdpr": "DSGVO-Konformität"
-    },
-    "copyright": "© 2024 A-Identity-Z. Alle Rechte vorbehalten. Registriert in Norwegen."
+    "description": "Website für Übersetzung, Dolmetschen und Lokalisierung.",
+    "onThisPage": "Auf dieser Seite",
+    "services": "Leistungen",
+    "about": "Über",
+    "faq": "Fragen",
+    "contact": "Kontakt",
+    "copyright": "Mehmet Zeki Oguz"
   },
   "languageSwitcher": {
     "label": "Sprache ändern",
     "languages": {
-      "en": "Englisch",
-      "no": "Norwegisch",
-      "sv": "Schwedisch",
-      "da": "Dänisch",
+      "en": "English",
+      "no": "Norsk",
+      "sv": "Svenska",
+      "da": "Dansk",
       "de": "Deutsch",
-      "tr": "Türkisch",
-      "ar": "Arabisch"
+      "tr": "Türkçe",
+      "ar": "العربية"
     }
   }
 }

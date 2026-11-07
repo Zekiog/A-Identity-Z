@@ -2,48 +2,7 @@ import React, { useState } from 'react';
 
 const UserManagement = () => {
   // Sample users data
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      name: 'Erik Johansson',
-      email: 'erik@aidentityz.com',
-      role: 'Administrator',
-      status: 'Active',
-      lastActive: '2023-07-01',
-    },
-    {
-      id: 2,
-      name: 'Sophia Lindberg',
-      email: 'sophia@aidentityz.com',
-      role: 'Translation Manager',
-      status: 'Active',
-      lastActive: '2023-07-02',
-    },
-    {
-      id: 3,
-      name: 'Maria Rodriguez',
-      email: 'maria@aidentityz.com',
-      role: 'AI Engineer',
-      status: 'Active',
-      lastActive: '2023-06-30',
-    },
-    {
-      id: 4,
-      name: 'Lars Nilsson',
-      email: 'lars@aidentityz.com',
-      role: 'Translator',
-      status: 'Active',
-      lastActive: '2023-06-28',
-    },
-    {
-      id: 5,
-      name: 'Anna Bergman',
-      email: 'anna@aidentityz.com',
-      role: 'Automation Specialist',
-      status: 'Inactive',
-      lastActive: '2023-06-15',
-    },
-  ]);
+  const [users, setUsers] = useState([]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newUser, setNewUser] = useState({
@@ -83,10 +42,6 @@ const UserManagement = () => {
         return 'bg-red-100 text-red-800';
       case 'Translation Manager':
         return 'bg-blue-100 text-blue-800';
-      case 'AI Engineer':
-        return 'bg-purple-100 text-purple-800';
-      case 'Automation Specialist':
-        return 'bg-yellow-100 text-yellow-800';
       case 'Translator':
         return 'bg-green-100 text-green-800';
       default:
@@ -97,7 +52,12 @@ const UserManagement = () => {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900">User Management</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-900">User Management</h1>
+          <p className="mt-2 max-w-2xl text-sm text-gray-600">
+            Demo. No accounts are stored. A row you add stays in this browser until refresh and is not sent to a server.
+          </p>
+        </div>
         <div className="mt-3 sm:mt-0 sm:ml-4">
           <button
             type="button"
@@ -236,9 +196,6 @@ const UserManagement = () => {
                           className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md"
                         >
                           <option value="Administrator">Administrator</option>
-                          <option value="Translation Manager">Translation Manager</option>
-                          <option value="AI Engineer">AI Engineer</option>
-                          <option value="Automation Specialist">Automation Specialist</option>
                           <option value="Translator">Translator</option>
                         </select>
                       </div>

@@ -3,27 +3,27 @@ import React, { useState } from 'react';
 const Settings = () => {
   const [generalSettings, setGeneralSettings] = useState({
     companyName: 'A-Identity-Z',
-    email: 'contact@aidentityz.com',
-    phone: '+47 123 456 789',
+    email: 'zeki@multilingual.no',
+    phone: '',
     address: 'Trondheim, Norway',
-    website: 'www.aidentityz.com',
+    website: 'https://multilingual.no',
     language: 'en',
     timezone: 'Europe/Oslo',
     dateFormat: 'DD/MM/YYYY'
   });
 
   const [notificationSettings, setNotificationSettings] = useState({
-    emailNotifications: true,
-    projectUpdates: true,
-    systemAlerts: true,
+    emailNotifications: false,
+    projectUpdates: false,
+    systemAlerts: false,
     marketingEmails: false,
-    dailyReports: true,
-    weeklyReports: true,
-    monthlyReports: true
+    dailyReports: false,
+    weeklyReports: false,
+    monthlyReports: false
   });
 
   const [securitySettings, setSecuritySettings] = useState({
-    twoFactorAuth: true,
+    twoFactorAuth: false,
     passwordExpiry: 90,
     sessionTimeout: 60,
     loginAttempts: 5,
@@ -58,7 +58,7 @@ const Settings = () => {
 
   const saveSettings = (settingType) => {
     // In a real app, this would send the updated settings to an API
-    alert(`${settingType} settings saved successfully!`);
+    alert(`${settingType} was not sent anywhere. This demo does not save settings.`);
   };
 
   return (
@@ -72,7 +72,7 @@ const Settings = () => {
           <div className="px-4 py-5 sm:px-6 bg-gray-50">
             <h2 className="text-lg font-medium text-gray-900">General Settings</h2>
             <p className="mt-1 text-sm text-gray-500">
-              Basic information about your organization.
+              Demo fields. Not saved on a server.
             </p>
           </div>
           <div className="border-t border-gray-200 px-4 py-5 sm:p-6">
@@ -222,7 +222,7 @@ const Settings = () => {
           <div className="px-4 py-5 sm:px-6 bg-gray-50">
             <h2 className="text-lg font-medium text-gray-900">Notification Settings</h2>
             <p className="mt-1 text-sm text-gray-500">
-              Manage how you receive notifications.
+              Demo fields. No notifications are sent.
             </p>
           </div>
           <div className="border-t border-gray-200 px-4 py-5 sm:p-6">
@@ -338,7 +338,7 @@ const Settings = () => {
           <div className="px-4 py-5 sm:px-6 bg-gray-50">
             <h2 className="text-lg font-medium text-gray-900">Security Settings</h2>
             <p className="mt-1 text-sm text-gray-500">
-              Manage security preferences for your organization.
+              Demo fields. Nothing here is enforced.
             </p>
           </div>
           <div className="border-t border-gray-200 px-4 py-5 sm:p-6">

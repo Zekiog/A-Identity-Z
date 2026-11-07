@@ -1,143 +1,94 @@
 {
   "navigation": {
-    "home": "Ana Sayfa",
+    "home": "Ana sayfa",
     "services": "Hizmetler",
-    "about": "Hakkımızda",
-    "faq": "SSS"
+    "about": "Hakkında",
+    "faq": "Sorular"
   },
   "hero": {
-    "tagline": "Norveç'in Önde Gelen Yapay Zeka ve Çeviri Hizmeti",
-    "heading": "Dilleri Birleştirme. Otomasyonu Güçlendirme.",
-    "description": "A-Identity-Z, küresel işletmeler için sorunsuz çeviri hizmetleri, güvenilir otomasyon sistemleri ve kişiselleştirilmiş yapay zeka entegrasyonları sunar.",
+    "tagline": "Trondheim, Norveç",
+    "heading": "Çeviri, sözlü çeviri ve yerelleştirme.",
+    "description": "A-Identity-Z, çeviri, sözlü çeviri ve yerelleştirme için bir sitedir.",
     "cta": {
-      "primary": "Başla",
-      "secondary": "Hizmetleri Keşfet"
+      "primary": "İletişim",
+      "secondary": "Hizmetler"
     }
   },
   "services": {
-    "title": "Hizmetlerimiz",
-    "heading": "Kapsamlı Çözümler",
-    "description": "Dijital çağda işletmenizi ileriye taşımak için çeviri, otomasyon ve yapay zeka teknolojileri alanlarında entegre hizmetler sunuyoruz.",
+    "title": "Hizmetler",
+    "heading": "Çeviri, sözlü çeviri ve yerelleştirme",
+    "description": "Bu site çeviri, sözlü çeviri ve yerelleştirme içindir.",
     "items": {
       "translation": {
-        "title": "Çeviri ve Tercümanlık",
-        "description": "Küresel iletişim için kültürel hassasiyet ve alan uzmanlığına sahip profesyonel dil hizmetleri."
+        "title": "Çeviri",
+        "description": "Yazılı çeviri."
       },
-      "ai": {
-        "title": "Yapay Zeka Entegrasyonu",
-        "description": "Belirli iş ihtiyaçlarınıza göre özelleştirilmiş ve eğitilmiş yapay zeka çözümleri."
+      "interpretation": {
+        "title": "Sözlü çeviri",
+        "description": "Konuşarak yapılan çeviri."
       },
-      "automation": {
-        "title": "Otomasyon Sistemleri",
-        "description": "Verimliliği artıran ve manuel işlemleri azaltan güvenilir ve izlenebilir otomasyon iş akışları."
+      "localisation": {
+        "title": "Yerelleştirme",
+        "description": "Metni bir dile ve bir yere uyarlamak."
       }
-    },
-    "learnMore": "Daha fazla bilgi"
+    }
   },
   "about": {
-    "tagline": "A-Identity-Z Hakkında",
-    "heading": "Küresel Etki, İskandinav Hassasiyeti",
-    "description1": "Norveç'in Trondheim şehrinde kurulan A-Identity-Z, İskandinav detay ve kalite anlayışıyla dünya standartlarında çeviri, otomasyon ve yapay zeka hizmetleri sunmaya kendini adamıştır.",
-    "description2": "Misyonumuz, küresel müşteri memnuniyetini ve sorumlu dijital dönüşümü önceliklendirirken, dil hizmetleri ve yapay zeka çözümlerinin uzun vadeli, sürdürülebilir ve verimli işleyişini sağlamaktır.",
-    "features": {
-      "sustainable": {
-        "title": "Sürdürülebilir",
-        "description": "Uzun vadeli odaklı çözümler"
+    "tagline": "Hakkında",
+    "heading": "A-Identity-Z",
+    "description1": "A-Identity-Z, çeviri, sözlü çeviri ve yerelleştirme için bir sitedir.",
+    "description2": "Trondheim, Norveç."
+  },
+  "faq": {
+    "tagline": "Sorular",
+    "heading": "Sorular",
+    "description": "Bu site hakkında kısa yanıtlar.",
+    "items": {
+      "what": {
+        "question": "Bu site nedir?",
+        "answer": "Çeviri, sözlü çeviri ve yerelleştirme için bir site."
       },
-      "traceable": {
-        "title": "İzlenebilir",
-        "description": "Şeffaf operasyonlar"
+      "languages": {
+        "question": "Arayüz hangi dilleri kullanır?",
+        "answer": "İngilizce, Norveççe, İsveççe, Danca, Almanca, Türkçe ve Arapça."
       },
-      "reliable": {
-        "title": "Güvenilir",
-        "description": "Tutarlı performans"
-      },
-      "global": {
-        "title": "Küresel",
-        "description": "Dünya çapında hizmetler"
+      "contact": {
+        "question": "Nasıl ulaşabilirim?",
+        "answer": "zeki@multilingual.no adresine yazın veya multilingual.no adresine gidin."
       }
     }
   },
-  "testimonials": {
-    "tagline": "Müşteri Görüşleri",
-    "heading": "Müşterilerimiz Ne Diyor",
-    "description": "Sadece bizim sözümüzü dinlemeyin. İşte müşterilerimizin hizmetlerimiz ve işbirliklerimiz hakkında söyledikleri."
-  },
-  "faq": {
-    "tagline": "SSS",
-    "heading": "Sıkça Sorulan Sorular",
-    "description": "Hizmetlerimiz, uygulama sürecimiz ve destek seçeneklerimiz hakkında sık sorulan soruların cevaplarını alın."
-  },
   "contact": {
-    "tagline": "Başlayın",
-    "heading": "Küresel Operasyonlarınızı Dönüştürmeye Hazır mısınız?",
-    "description": "Belirli ihtiyaçlarınızı tartışmak ve A-Identity-Z'nin sorunsuz küresel iletişim ve verimli operasyonlar elde etmenize nasıl yardımcı olabileceğini keşfetmek için uzmanlarımızla iletişime geçin.",
-    "headquarters": "Genel Merkez",
+    "tagline": "İletişim",
+    "heading": "İletişim",
+    "description": "Çeviri, sözlü çeviri ve yerelleştirme için.",
+    "locationLabel": "Konum",
     "location": "Trondheim, Norveç",
-    "emailUs": "Bize E-posta Gönderin",
-    "email": "iletisim@aidentityz.com",
-    "formTitle": "Bilgi İsteği",
-    "form": {
-      "firstName": "Ad",
-      "lastName": "Soyad",
-      "email": "E-posta Adresi",
-      "company": "Şirket",
-      "service": "İlgilenilen Hizmet",
-      "serviceOptions": {
-        "select": "Bir hizmet seçin",
-        "translation": "Çeviri ve Tercümanlık",
-        "ai": "Yapay Zeka Entegrasyonu",
-        "automation": "Otomasyon Sistemleri",
-        "multiple": "Birden Fazla Hizmet"
-      },
-      "message": "Mesaj",
-      "messagePlaceholder": "Projeniz hakkında bize bilgi verin",
-      "submit": "İstek Gönder",
-      "privacy": "Bu formu göndererek, Gizlilik Politikamızı ve Hizmet Şartlarımızı kabul etmiş olursunuz."
-    }
+    "emailLabel": "E-posta",
+    "email": "zeki@multilingual.no",
+    "siteLabel": "Site",
+    "siteName": "multilingual.no",
+    "siteUrl": "https://multilingual.no"
   },
   "footer": {
-    "cta": {
-      "heading": "Küresel operasyonlarınızı yükseltmeye hazır mısınız?",
-      "description": "A-Identity-Z ile yolculuğunuza bugün başlayın.",
-      "button": "Hemen Başlayın"
-    },
-    "description": "İskandinav hassasiyeti ve küresel uzmanlıkla dilleri birleştirme ve otomasyonu güçlendirme.",
-    "serviceLinks": {
-      "heading": "Hizmetler",
-      "translation": "Çeviri Hizmetleri",
-      "interpretation": "Tercümanlık",
-      "ai": "Yapay Zeka Entegrasyonu",
-      "automation": "Otomasyon Sistemleri",
-      "custom": "Özel Çözümler"
-    },
-    "companyLinks": {
-      "heading": "Şirket",
-      "about": "Hakkımızda",
-      "team": "Ekibimiz",
-      "careers": "Kariyer",
-      "press": "Basın",
-      "contact": "İletişim"
-    },
-    "legalLinks": {
-      "heading": "Yasal",
-      "privacy": "Gizlilik Politikası",
-      "terms": "Hizmet Şartları",
-      "cookies": "Çerez Politikası",
-      "gdpr": "GDPR Uyumluluğu"
-    },
-    "copyright": "© 2024 A-Identity-Z. Tüm hakları saklıdır. Norveç'te kayıtlıdır."
+    "description": "Çeviri, sözlü çeviri ve yerelleştirme sitesi.",
+    "onThisPage": "Bu sayfada",
+    "services": "Hizmetler",
+    "about": "Hakkında",
+    "faq": "Sorular",
+    "contact": "İletişim",
+    "copyright": "Mehmet Zeki Oguz"
   },
   "languageSwitcher": {
-    "label": "Dil değiştir",
+    "label": "Dili değiştir",
     "languages": {
-      "en": "İngilizce",
-      "no": "Norveççe",
-      "sv": "İsveççe",
-      "da": "Danca",
-      "de": "Almanca",
+      "en": "English",
+      "no": "Norsk",
+      "sv": "Svenska",
+      "da": "Dansk",
+      "de": "Deutsch",
       "tr": "Türkçe",
-      "ar": "Arapça"
+      "ar": "العربية"
     }
   }
 }
