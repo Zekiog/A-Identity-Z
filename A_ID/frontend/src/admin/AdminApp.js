@@ -30,7 +30,7 @@ const navItems = [
   { name: 'Users', icon: <UserGroupIcon className="h-5 w-5" />, path: '/admin/users' },
   { name: 'Projects', icon: <BriefcaseIcon className="h-5 w-5" />, path: '/admin/projects' },
   { name: 'Translations', icon: <DocumentTextIcon className="h-5 w-5" />, path: '/admin/translations' },
-  { name: 'AI Models', icon: <ServerIcon className="h-5 w-5" />, path: '/admin/ai-models' },
+  { name: 'Models', icon: <ServerIcon className="h-5 w-5" />, path: '/admin/ai-models' },
   { name: 'Settings', icon: <Cog6ToothIcon className="h-5 w-5" />, path: '/admin/settings' },
 ];
 
@@ -148,11 +148,9 @@ const AdminApp = () => {
               <div className="ml-3 relative">
                 <div className="flex items-center">
                   <div className="flex items-center">
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src="https://randomuser.me/api/portraits/men/31.jpg"
-                      alt=""
-                    />
+                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-700">
+                      {(user?.name || 'D').slice(0, 1).toUpperCase()}
+                    </div>
                     <div className="ml-2">
                       <div className="text-sm font-medium text-gray-700">{user?.name || 'Admin User'}</div>
                       <div className="text-xs text-gray-500">{user?.role || 'Administrator'}</div>
@@ -167,15 +165,18 @@ const AdminApp = () => {
         {/* Main Content Area */}
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
           <div className="py-6">
+            <p className="px-4 sm:px-6 lg:px-8 mb-4 text-sm text-gray-600">
+              Demo. These screens are not a live operations console.
+            </p>
             <Routes>
-              <Route path="/admin/dashboard" element={<Dashboard />} />
-              <Route path="/admin/users" element={<UserManagement />} />
-              <Route path="/admin/projects" element={<Projects />} />
-              <Route path="/admin/translations" element={<TranslationManagement />} />
-              <Route path="/admin/ai-models" element={<AIModels />} />
-              <Route path="/admin/settings" element={<Settings />} />
-              <Route path="/admin" element={<Navigate replace to="/admin/dashboard" />} />
-              <Route path="*" element={<Navigate replace to="/admin/dashboard" />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="users" element={<UserManagement />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="translations" element={<TranslationManagement />} />
+              <Route path="ai-models" element={<AIModels />} />
+              <Route path="settings" element={<Settings />} />
+              <Route index element={<Navigate replace to="dashboard" />} />
+              <Route path="*" element={<Navigate replace to="dashboard" />} />
             </Routes>
           </div>
         </main>

@@ -4,58 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const TranslationManagement = () => {
-  const [translations, setTranslations] = useState([
-    {
-      id: 1,
-      title: 'Corporate Website Localization',
-      client: 'NorTech Solutions',
-      sourceLanguage: 'English',
-      targetLanguages: ['Norwegian', 'Swedish', 'Danish'],
-      status: 'In Progress',
-      dueDate: new Date(2023, 6, 15),
-      progress: 65,
-    },
-    {
-      id: 2,
-      title: 'Technical Documentation',
-      client: 'GreenStream Energy',
-      sourceLanguage: 'Norwegian',
-      targetLanguages: ['English', 'German'],
-      status: 'Completed',
-      dueDate: new Date(2023, 5, 20),
-      progress: 100,
-    },
-    {
-      id: 3,
-      title: 'Marketing Materials',
-      client: 'Global Connect',
-      sourceLanguage: 'English',
-      targetLanguages: ['Norwegian', 'Swedish', 'Danish', 'German', 'Turkish'],
-      status: 'Pending Review',
-      dueDate: new Date(2023, 7, 5),
-      progress: 90,
-    },
-    {
-      id: 4,
-      title: 'Product Catalog',
-      client: 'Nordic Innovations',
-      sourceLanguage: 'Swedish',
-      targetLanguages: ['English', 'German', 'Turkish'],
-      status: 'Not Started',
-      dueDate: new Date(2023, 7, 25),
-      progress: 0,
-    },
-    {
-      id: 5,
-      title: 'Legal Agreement Translation',
-      client: 'TechFlow Systems',
-      sourceLanguage: 'English',
-      targetLanguages: ['Norwegian', 'German'],
-      status: 'In Progress',
-      dueDate: new Date(2023, 6, 28),
-      progress: 45,
-    },
-  ]);
+  const [translations, setTranslations] = useState([]);
 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm();
@@ -97,7 +46,12 @@ const TranslationManagement = () => {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900">Translation Projects</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-900">Translation Projects</h1>
+          <p className="mt-2 max-w-2xl text-sm text-gray-600">
+            Demo. No projects are stored. A row you add stays in this browser until refresh and is not sent to a server.
+          </p>
+        </div>
         <div className="mt-3 sm:mt-0 sm:ml-4">
           <button
             type="button"

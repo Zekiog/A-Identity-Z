@@ -80,17 +80,10 @@ const login = async (email, password) => {
 };
 ```
 
-## AI Agent Orchestration Integration
-
-Per the "Otonom Ajan Mimarisi" document in Google Drive:
-- A-Identity-Z admin dashboard should expose a `/webhooks/translation-complete` endpoint
-- This allows Hermes/N8N to trigger post-translation workflows automatically
-- MCP tool: `trigger_translation(source_lang, target_langs, content_url)`
-
 ## Security Checklist
 
 - [ ] JWT secret rotated and stored in Azure Key Vault
 - [ ] HTTPS enforced (Azure Functions → custom domain)
 - [ ] Rate limiting on `/api/auth/login` (5 req/min per IP)  
 - [ ] Audit log for all admin actions
-- [ ] i18n strings sanitized (XSS prevention for 7 languages)
+- [ ] i18n strings in the frontend locale files sanitized (XSS prevention)
